@@ -1,0 +1,932 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>CrestHaven</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles-extra.css">
+
+<header class="site-header">
+  <div class="container nav-bar">
+    <a class="brand" href="#home" aria-label="CrestHaven home">
+      <img class="brand-logo" src="images/crest-haven-logo.png" alt="CrestHaven" width="1487" height="953">
+    </a>
+
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">Open menu</span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#home" data-nav="home">Home</a></li>
+        <li><a href="#buy" data-nav="buy">Buy</a></li>
+        <li><a href="#rent" data-nav="rent">Rent</a></li>
+        <li><a href="#sell" data-nav="sell">Sell Property</a></li>
+        <li><a href="#design" data-nav="design">Design Your Home</a></li>
+        <li><a href="#architect" data-nav="architect">Find an Architect</a></li>
+      </ul>
+    </nav>
+
+    <a class="nav-account" id="nav-account" href="#login">Log in</a>
+    <a class="btn btn-gold btn-small nav-cta" href="#contact">Contact Us</a>
+  </div>
+</header>
+
+<main id="app">
+
+  <!-- HOME -->
+  <section class="view" data-view="home">
+
+    <section class="hero" aria-labelledby="hero-title">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/property-landscape-01.jpg" aria-hidden="true">
+        <source src="video/hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="container hero-content">
+        <p class="eyebrow">Luxury real estate</p>
+        <h1 id="hero-title">Find a home that fits the way you live</h1>
+        <p class="hero-text">Buy or rent villas, penthouses and private retreats. Every property is verified, photographed in person and presented by an advisor who knows the neighbourhood.</p>
+
+        <form class="search-card" id="hero-search" role="search" aria-label="Search properties">
+          <fieldset class="segmented">
+            <legend class="sr-only">Purpose</legend>
+            <label><input type="radio" name="purpose" value="buy" checked><span>Buy</span></label>
+            <label><input type="radio" name="purpose" value="rent"><span>Rent</span></label>
+          </fieldset>
+          <label class="field">
+            <span class="field-label">Location</span>
+            <select name="location" data-options="location"></select>
+          </label>
+          <label class="field">
+            <span class="field-label">Property type</span>
+            <select name="type" data-options="type"></select>
+          </label>
+          <button class="btn btn-dark search-btn" type="submit">Search</button>
+        </form>
+
+        <dl class="stats-grid">
+          <div class="stat">
+            <dt class="stat-label">Homes sold</dt>
+            <dd class="stat-value">240+</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat-label">Years in luxury real estate</dt>
+            <dd class="stat-value">15</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat-label">Average client rating</dt>
+            <dd class="stat-value">4.9</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container split">
+        <div class="split-media">
+          <img src="images/property-square-02.jpg" alt="Sunlit living room with a travertine fireplace, white sofas and an olive tree in the garden view" width="2048" height="2048" loading="lazy">
+        </div>
+        <div class="split-copy">
+          <p class="eyebrow">About CrestHaven</p>
+          <h2>Experience excellence in real estate</h2>
+          <p>Buying, renting or building a home should feel exciting, not stressful. Our advisors guide every step, from the first private viewing to the final signature or the keys in your hand.</p>
+          <a class="btn btn-dark" href="#contact">Talk to an Advisor</a>
+
+          <ul class="feature-list">
+            <li>
+              <h3>Expert guidance</h3>
+              <p>Experienced advisors who explain the market, the numbers and the paperwork in plain language.</p>
+            </li>
+            <li>
+              <h3>Wide property selection</h3>
+              <p>From coastal villas to city penthouses, every listing is checked in person before it reaches you.</p>
+            </li>
+            <li>
+              <h3>A trusted process</h3>
+              <p>Clear timelines, verified documents and one point of contact from the first call to handover.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="featured">
+      <div class="container">
+        <div class="section-head-row">
+          <div class="section-head">
+            <p class="eyebrow">Featured homes</p>
+            <h2>Homes we are proud to present</h2>
+          </div>
+          <a class="btn btn-outline-dark" href="#properties">View all properties</a>
+        </div>
+        <div class="card-grid" id="featured-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Beyond buying and renting</p>
+          <h2>Sell, design and build with us</h2>
+        </div>
+        <div class="build-cards">
+          <a class="build-card" href="#sell">
+            <p class="eyebrow">Sell your property</p>
+            <h3>List your home with CrestHaven</h3>
+            <p>Submit your property in a few guided steps. Our team reviews every listing before it goes live.</p>
+          </a>
+          <a class="build-card" href="#design">
+            <p class="eyebrow">Design studio</p>
+            <h3>Design your dream home</h3>
+            <p>Choose a style, describe your plot and brief, and share the inspiration you love.</p>
+          </a>
+          <a class="build-card" href="#architect">
+            <p class="eyebrow">Professional help</p>
+            <h3>Find an architect</h3>
+            <p>Request a consultation with an architect or interior designer for your plot and budget.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2>From first search to final keys</h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <span class="step-num">01</span>
+            <h3>Choose a property</h3>
+            <p>Browse verified listings for sale or for rent, or tell us what you need and we will shortlist homes that match.</p>
+          </li>
+          <li>
+            <span class="step-num">02</span>
+            <h3>Visit in person</h3>
+            <p>Book a private viewing at a time that suits you. We arrange access, timing and answers to every question.</p>
+          </li>
+          <li>
+            <span class="step-num">03</span>
+            <h3>Close with confidence</h3>
+            <p>We guide offers, rental agreements and paperwork until the deal is complete and the keys are handed over.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="container">
+        <div class="cta-box">
+          <img class="cta-image" src="images/property-landscape-01.jpg" alt="" aria-hidden="true" loading="lazy" width="2816" height="1584">
+          <div class="cta-overlay" aria-hidden="true"></div>
+          <p class="eyebrow">Private consultation</p>
+          <h2>Not sure where to start?</h2>
+          <p class="cta-text">Tell us your budget, timeline and lifestyle. We will suggest the neighbourhoods and properties that fit best.</p>
+          <a class="btn btn-gold" href="#contact">Book a Consultation</a>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- LISTINGS (buy, rent, all) -->
+  <section class="view" data-view="listings" hidden>
+    <div class="container page-head">
+      <p class="eyebrow">Properties</p>
+      <h1 id="listings-title">All properties</h1>
+      <p class="lead" id="listings-lead">Browse every home we represent, for sale and for rent.</p>
+    </div>
+
+    <div class="container listings-body">
+      <nav class="tabs listing-tabs" aria-label="Filter by purpose">
+        <a href="#buy" data-tab="buy">For sale</a>
+        <a href="#rent" data-tab="rent">For rent</a>
+        <a href="#properties" data-tab="all">All</a>
+      </nav>
+
+      <form class="filters" id="filters" aria-label="Filter properties">
+        <label class="field compact">
+          <span class="field-label">Location</span>
+          <select id="f-location"></select>
+        </label>
+        <label class="field compact">
+          <span class="field-label">Property type</span>
+          <select id="f-type"></select>
+        </label>
+        <label class="field compact">
+          <span class="field-label" id="f-price-label">Price</span>
+          <select id="f-price"></select>
+        </label>
+        <label class="field compact">
+          <span class="field-label" id="f-price-label">Price</span>
+          <select id="f-price"></select>
+        </label>
+        <label class="field compact">
+          <span class="field-label">Bedrooms</span>
+          <select id="f-beds"></select>
+        </label>
+        <label class="field compact">
+          <span class="field-label">Bathrooms</span>
+          <select id="f-baths"></select>
+        </label>
+        <label class="field compact">
+          <span class="field-label">Area</span>
+          <select id="f-area"></select>
+        </label>
+        <label class="field compact" id="f-furnished-wrap" hidden>
+          <span class="field-label">Furnishing</span>
+          <select id="f-furnished"></select>
+        </label>
+        <label class="field compact">
+          <span class="field-label">Sort by</span>
+          <select id="f-sort"></select>
+        </label>
+        <div class="filter-actions">
+          <button class="btn btn-outline-dark btn-small" type="button" id="f-reset">Reset filters</button>
+        </div>
+      </form>
+
+      <p class="result-count" id="result-count" aria-live="polite"></p>
+      <div class="card-grid" id="listing-grid"></div>
+      <p class="empty" id="listing-empty" hidden>No properties match these filters. Try changing the location, price or size.</p>
+    </div>
+  </section>
+
+  <!-- PROPERTY DETAIL -->
+  <section class="view" data-view="property" hidden>
+    <div class="container" id="property-detail"></div>
+  </section>
+
+  <!-- SELL PROPERTY -->
+  <section class="view" data-view="sell" hidden>
+    <div class="container page-head">
+      <p class="eyebrow">Sell or rent out your property</p>
+      <h1>List your property with CrestHaven</h1>
+      <p class="lead">Complete the four steps below. Our team reviews every listing before it goes live, so only accurate, complete homes reach buyers and renters.</p>
+    </div>
+
+    <div class="container form-page">
+      <ol class="wizard-steps" aria-label="Progress">
+        <li data-step-ind>
+          <span class="step-no">01</span>
+          <span>Basics</span>
+        </li>
+        <li data-step-ind>
+          <span class="step-no">02</span>
+          <span>Location and price</span>
+        </li>
+        <li data-step-ind>
+          <span class="step-no">03</span>
+          <span>Details and photos</span>
+        </li>
+        <li data-step-ind>
+          <span class="step-no">04</span>
+          <span>Your contact</span>
+        </li>
+      </ol>
+
+      <p class="wizard-progress" id="sell-progress" aria-live="polite"></p>
+
+      <form class="wizard-form" id="sell-form" novalidate>
+        <fieldset class="wizard-step" data-step>
+          <legend class="wizard-title">Basics</legend>
+
+          <fieldset class="fieldset-reset">
+            <legend class="field-label">Listing type</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="listing-type" value="For sale" data-label="Listing type" required><span>For sale</span></label>
+              <label class="chip"><input type="radio" name="listing-type" value="For rent" data-label="Listing type" required><span>For rent</span></label>
+            </div>
+          </fieldset>
+
+          <label class="field">
+            <span class="field-label">Property title</span>
+            <input name="title" type="text" maxlength="90" data-label="Property title" placeholder="For example, Hillside Stone Villa with Olive Grove" required>
+          </label>
+
+          <label class="field">
+            <span class="field-label">Property category</span>
+            <select name="category" data-label="Category" required>
+              <option value="">Select a category</option>
+              <option>Villa</option>
+              <option>Penthouse</option>
+              <option>Residence</option>
+              <option>Chalet</option>
+              <option>Apartment</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span class="field-label">Description</span>
+            <textarea name="description" rows="6" maxlength="1500" data-label="Description" placeholder="Describe the layout, condition, views and what makes this property special." required></textarea>
+          </label>
+        </fieldset>
+
+        <fieldset class="wizard-step" data-step hidden>
+          <legend class="wizard-title">Location and price</legend>
+
+          <label class="field">
+            <span class="field-label">Full address</span>
+            <input name="address" type="text" autocomplete="street-address" data-label="Address" required>
+          </label>
+
+          <label class="field">
+            <span class="field-label">Area or neighbourhood</span>
+            <input name="location" type="text" data-label="Neighbourhood" required>
+          </label>
+
+          <div class="field-row">
+            <label class="field">
+              <span class="field-label">Asking price (USD)</span>
+              <input name="price" type="number" min="1" step="1" data-label="Asking price" required>
+            </label>
+            <label class="field">
+              <span class="field-label">Available from</span>
+              <input name="available" type="date" data-label="Available from">
+            </label>
+          </div>
+
+          <fieldset class="fieldset-reset">
+            <legend class="field-label">Furnishing (for rentals)</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="furnishing" value="Furnished" data-label="Furnishing"><span>Furnished</span></label>
+              <label class="chip"><input type="radio" name="furnishing" value="Unfurnished" data-label="Furnishing"><span>Unfurnished</span></label>
+              <label class="chip"><input type="radio" name="furnishing" value="Not applicable" data-label="Furnishing"><span>Not applicable</span></label>
+            </div>
+          </fieldset>
+        </fieldset>
+
+        <fieldset class="wizard-step" data-step hidden>
+          <legend class="wizard-title">Details and photos</legend>
+
+          <div class="field-row">
+            <label class="field">
+              <span class="field-label">Bedrooms</span>
+              <select name="beds" data-label="Bedrooms" required>
+                <option value="">Select</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7+</option>
+              </select>
+            </label>
+            <label class="field">
+              <span class="field-label">Bathrooms</span>
+              <select name="baths" data-label="Bathrooms" required>
+                <option value="">Select</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="field">
+            <span class="field-label">Built-up area (m²)</span>
+            <input name="area" type="number" min="10" step="1" data-label="Area (m²)" required>
+          </label>
+
+          <fieldset class="fieldset-reset">
+            <legend class="field-label">Amenities</legend>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="amenities" value="Swimming pool" data-label="Amenity"><span>Swimming pool</span></label>
+              <label class="chip"><input type="checkbox" name="amenities" value="Garden" data-label="Amenity"><span>Garden</span></label>
+              <label class="chip"><input type="checkbox" name="amenities" value="Garage" data-label="Amenity"><span>Garage</span></label>
+              <label class="chip"><input type="checkbox" name="amenities" value="Terrace" data-label="Amenity"><span>Terrace</span></label>
+              <label class="chip"><input type="checkbox" name="amenities" value="Gym" data-label="Amenity"><span>Gym</span></label>
+              <label class="chip"><input type="checkbox" name="amenities" value="Security" data-label="Amenity"><span>24/7 security</span></label>
+            </div>
+          </fieldset>
+
+          <label class="field">
+            <span class="field-label">Photos</span>
+            <input name="photos" id="photo-input" type="file" accept="image/*" multiple data-label="Photos">
+            <span class="note" id="photo-count">Upload up to 12 photos (JPG or PNG, 10 MB each). Use bright, straight-on shots of every main room.</span>
+          </label>
+        </fieldset>
+
+        <fieldset class="wizard-step" data-step hidden>
+          <legend class="wizard-title">Your contact details</legend>
+
+          <label class="field">
+            <span class="field-label">Full name</span>
+            <input name="name" type="text" autocomplete="name" data-label="Full name" required>
+          </label>
+
+          <div class="field-row">
+            <label class="field">
+              <span class="field-label">Email</span>
+              <input name="email" type="email" autocomplete="email" data-label="Email" required>
+            </label>
+            <label class="field">
+              <span class="field-label">Phone</span>
+              <input name="phone" type="tel" autocomplete="tel" data-label="Phone" required>
+            </label>
+          </div>
+
+          <fieldset class="fieldset-reset">
+            <legend class="field-label">Preferred contact method</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="contact-method" value="Email" data-label="Preferred contact" checked><span>Email</span></label>
+              <label class="chip"><input type="radio" name="contact-method" value="Phone" data-label="Preferred contact"><span>Phone</span></label>
+              <label class="chip"><input type="radio" name="contact-method" value="WhatsApp" data-label="Preferred contact"><span>WhatsApp</span></label>
+            </div>
+          </fieldset>
+
+          <label class="check-line">
+            <input type="checkbox" name="ownership" value="Confirmed" data-label="Ownership confirmed" required>
+            <span>I confirm that I own this property or am authorised to list it, and that the details are accurate.</span>
+          </label>
+        </fieldset>
+
+        <div class="wizard-actions">
+          <button class="btn btn-outline-dark" type="button" id="sell-back" hidden>Back</button>
+          <button class="btn btn-dark" type="button" id="sell-next">Continue</button>
+          <button class="btn btn-gold" type="submit" id="sell-submit" hidden>Review listing</button>
+        </div>
+      </form>
+
+      <div class="request-result" id="sell-result" hidden></div>
+    </div>
+  </section>
+
+  <!-- DESIGN YOUR DREAM HOME -->
+  <section class="view" data-view="design" hidden>
+    <div class="container page-head">
+      <p class="eyebrow">Design studio</p>
+      <h1>Design your dream home</h1>
+      <p class="lead">Choose a style, describe your plot and brief, and share the homes you love. Start from the inspiration below or build a brief from scratch.</p>
+    </div>
+
+    <div class="container design-body">
+      <section class="design-block" aria-labelledby="inspo-title">
+        <div class="section-head">
+          <p class="eyebrow">Inspiration</p>
+          <h2 id="inspo-title">Start from a style you love</h2>
+        </div>
+        <div class="inspo-grid" id="inspo-grid"></div>
+      </section>
+
+      <section class="design-block" aria-labelledby="ai-title">
+        <div class="section-head">
+          <p class="eyebrow">AI design assistant</p>
+          <h2 id="ai-title">Describe your home in your own words</h2>
+        </div>
+        <div class="ai-panel">
+          <p>Choose a style and fill in your brief below, then press the button. The assistant uses your style, plot, rooms and budget to suggest concept directions, layouts and materials. Your name, email and phone number are never sent to the AI service.</p>
+          <button class="btn btn-dark" type="button" id="ai-suggest">Get AI suggestions</button>
+          <div class="ai-output" id="ai-result" hidden></div>
+        </div>
+      </section>
+
+      <section class="design-block" aria-labelledby="brief-title">
+        <div class="section-head">
+          <p class="eyebrow">Design brief</p>
+          <h2 id="brief-title">Tell us about your dream home</h2>
+        </div>
+
+        <form class="request-form design-form" id="design-form" data-type="design" novalidate>
+          <fieldset class="form-section fieldset-reset">
+            <legend class="field-label">Architectural style</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="style" value="Modern" data-label="Style" required><span>Modern</span></label>
+              <label class="chip"><input type="radio" name="style" value="Minimalist" data-label="Style"><span>Minimalist</span></label>
+              <label class="chip"><input type="radio" name="style" value="Luxury" data-label="Style"><span>Luxury</span></label>
+              <label class="chip"><input type="radio" name="style" value="Contemporary" data-label="Style"><span>Contemporary</span></label>
+              <label class="chip"><input type="radio" name="style" value="Traditional" data-label="Style"><span>Traditional</span></label>
+            </div>
+          </fieldset>
+
+          <div class="form-section">
+            <h3>Plot and layout</h3>
+            <div class="field-row">
+              <label class="field">
+                <span class="field-label">Plot size</span>
+                <input name="plot-size" type="number" min="1" step="1" data-label="Plot size" required>
+              </label>
+              <label class="field">
+                <span class="field-label">Unit</span>
+                <select name="plot-unit" data-label="Plot unit" required>
+                  <option value="m²">Square metres (m²)</option>
+                  <option value="sq ft">Square feet (sq ft)</option>
+                  <option value="Marla">Marla</option>
+                  <option value="Kanal">Kanal</option>
+                </select>
+              </label>
+            </div>
+            <div class="field-row">
+              <label class="field">
+                <span class="field-label">Number of floors</span>
+                <select name="floors" data-label="Floors" required>
+                  <option value="">Select</option>
+                  <option>1</option><option>2</option><option>3</option><option>4 or more</option>
+                </select>
+              </label>
+              <label class="field">
+                <span class="field-label">Construction budget</span>
+                <select name="budget" data-label="Budget" required>
+                  <option value="">Select a range</option>
+                  <option>Under $250,000</option>
+                  <option>$250,000 to $500,000</option>
+                  <option>$500,000 to $1,000,000</option>
+                  <option>Above $1,000,000</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Rooms and spaces</h3>
+            <div class="field-row">
+              <label class="field">
+                <span class="field-label">Bedrooms</span>
+                <select name="beds" data-label="Bedrooms" required>
+                  <option value="">Select</option>
+                  <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option>
+                </select>
+              </label>
+              <label class="field">
+                <span class="field-label">Bathrooms</span>
+                <select name="baths" data-label="Bathrooms" required>
+                  <option value="">Select</option>
+                  <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+                </select>
+              </label>
+            </div>
+            <div class="field-row">
+              <label class="field">
+                <span class="field-label">Kitchen</span>
+                <select name="kitchen" data-label="Kitchen">
+                  <option value="">Select</option>
+                  <option>Open plan</option>
+                  <option>Closed kitchen</option>
+                  <option>Chef kitchen with butler pantry</option>
+                </select>
+              </label>
+              <label class="field">
+                <span class="field-label">Living room</span>
+                <select name="living" data-label="Living room">
+                  <option value="">Select</option>
+                  <option>Single living room</option>
+                  <option>Double-height living room</option>
+                  <option>Separate family and formal lounges</option>
+                </select>
+              </label>
+            </div>
+
+            <fieldset class="fieldset-reset">
+              <legend class="field-label">Other spaces</legend>
+              <div class="chips">
+                <label class="chip"><input type="checkbox" name="spaces" value="Study" data-label="Other space"><span>Study</span></label>
+                <label class="chip"><input type="checkbox" name="spaces" value="Home office" data-label="Other space"><span>Home office</span></label>
+                <label class="chip"><input type="checkbox" name="spaces" value="Garage" data-label="Other space"><span>Garage</span></label>
+                <label class="chip"><input type="checkbox" name="spaces" value="Swimming pool" data-label="Other space"><span>Swimming pool</span></label>
+                <label class="chip"><input type="checkbox" name="spaces" value="Garden" data-label="Other space"><span>Garden</span></label>
+                <label class="chip"><input type="checkbox" name="spaces" value="Gym" data-label="Other space"><span>Gym</span></label>
+                <label class="chip"><input type="checkbox" name="spaces" value="Guest suite" data-label="Other space"><span>Guest suite</span></label>
+                <label class="chip"><input type="checkbox" name="spaces" value="Rooftop terrace" data-label="Other space"><span>Rooftop terrace</span></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-section">
+            <h3>Your vision</h3>
+            <label class="field">
+              <span class="field-label">Describe your dream home</span>
+              <textarea name="description" rows="6" maxlength="2000" data-label="Dream home description" placeholder="Tell us how you want to live: the light you enjoy, how the family gathers, what you want to see from the windows." required></textarea>
+            </label>
+            <label class="field">
+              <span class="field-label">Reference images</span>
+              <input name="references" type="file" accept="image/*" multiple data-label="Reference images">
+              <span class="note">Upload houses or interiors you like (JPG or PNG, 10 MB each).</span>
+            </label>
+          </div>
+
+          <div class="form-section">
+            <h3>Your details</h3>
+            <div class="field-row">
+              <label class="field">
+                <span class="field-label">Full name</span>
+                <input name="name" type="text" autocomplete="name" data-label="Full name" required>
+              </label>
+              <label class="field">
+                <span class="field-label">Email</span>
+                <input name="email" type="email" autocomplete="email" data-label="Email" required>
+              </label>
+            </div>
+            <label class="field">
+              <span class="field-label">Phone</span>
+              <input name="phone" type="tel" autocomplete="tel" data-label="Phone" required>
+            </label>
+          </div>
+
+          <button class="btn btn-gold" type="submit">Review design brief</button>
+        </form>
+
+        <div class="request-result" id="design-result" hidden></div>
+      </section>
+    </div>
+  </section>
+
+  <!-- FIND AN ARCHITECT -->
+  <section class="view" data-view="architect" hidden>
+    <div class="container page-head">
+      <p class="eyebrow">Professional consultation</p>
+      <h1>Find an architect or interior designer</h1>
+      <p class="lead">Share your plot, budget and style. We will match your request with an architect or interior designer and reply within two business days.</p>
+    </div>
+
+    <div class="container form-page">
+      <form class="request-form" id="architect-form" data-type="architect" novalidate>
+        <div class="form-section">
+          <h3>Your details</h3>
+          <div class="field-row">
+            <label class="field">
+              <span class="field-label">Full name</span>
+              <input name="name" type="text" autocomplete="name" data-label="Full name" required>
+            </label>
+            <label class="field">
+              <span class="field-label">Email</span>
+              <input name="email" type="email" autocomplete="email" data-label="Email" required>
+            </label>
+          </div>
+          <label class="field">
+            <span class="field-label">Phone</span>
+            <input name="phone" type="tel" autocomplete="tel" data-label="Phone" required>
+          </label>
+        </div>
+
+        <div class="form-section">
+          <h3>What you need</h3>
+          <label class="field">
+            <span class="field-label">Service</span>
+            <select name="service" data-label="Service" required>
+              <option value="">Select a service</option>
+              <option>Architecture (new build or extension)</option>
+              <option>Interior design</option>
+              <option>Architecture and interior design</option>
+            </select>
+          </label>
+          <div class="field-row">
+            <label class="field">
+              <span class="field-label">Plot size</span>
+              <input name="plot-size" type="number" min="1" step="1" data-label="Plot size" required>
+            </label>
+            <label class="field">
+              <span class="field-label">Unit</span>
+              <select name="plot-unit" data-label="Plot unit" required>
+                <option value="m²">Square metres (m²)</option>
+                <option value="sq ft">Square feet (sq ft)</option>
+                <option value="Marla">Marla</option>
+                <option value="Kanal">Kanal</option>
+              </select>
+            </label>
+          </div>
+          <div class="field-row">
+            <label class="field">
+              <span class="field-label">Estimated construction budget</span>
+              <select name="budget" data-label="Construction budget" required>
+                <option value="">Select a range</option>
+                <option>Under $250,000</option>
+                <option>$250,000 to $500,000</option>
+                <option>$500,000 to $1,000,000</option>
+                <option>Above $1,000,000</option>
+              </select>
+            </label>
+            <label class="field">
+              <span class="field-label">Preferred house style</span>
+              <select name="style" data-label="Preferred style">
+                <option value="">Not sure yet</option>
+                <option>Modern</option>
+                <option>Minimalist</option>
+                <option>Luxury</option>
+                <option>Contemporary</option>
+                <option>Traditional</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Requirements</h3>
+          <label class="field">
+            <span class="field-label">Interior and exterior requirements</span>
+            <textarea name="requirements" rows="5" maxlength="2000" data-label="Requirements" placeholder="Rooms you need, orientation, views, materials, outdoor spaces and anything you want to keep." required></textarea>
+          </label>
+          <label class="field">
+            <span class="field-label">Additional notes</span>
+            <textarea name="notes" rows="3" maxlength="1000" data-label="Notes"></textarea>
+          </label>
+          <label class="field">
+            <span class="field-label">Reference images</span>
+            <input name="references" type="file" accept="image/*" multiple data-label="Reference images">
+            <span class="note">Upload plans, sketches or photos that inspire you (JPG, PNG or PDF screenshots as images).</span>
+          </label>
+        </div>
+
+        <button class="btn btn-gold" type="submit">Review consultation request</button>
+      </form>
+
+      <div class="request-result" id="architect-result" hidden></div>
+    </div>
+  </section>
+
+  <!-- SAVED HOMES -->
+  <section class="view" data-view="saved" hidden>
+    <div class="container page-head">
+      <p class="eyebrow">Your shortlist</p>
+      <h1>Saved homes</h1>
+      <p class="lead" id="saved-count"></p>
+    </div>
+    <div class="container listings-body">
+      <div class="card-grid" id="saved-grid"></div>
+      <div class="empty" id="saved-empty" hidden>
+        <p>You have not saved any homes yet. Tap "Save to favorites" on any property to add it here.</p>
+        <p class="saved-links"><a href="#buy">Browse homes for sale</a> &middot; <a href="#rent">Browse homes for rent</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="view" data-view="contact" hidden>
+    <div class="container page-head">
+      <p class="eyebrow">Contact</p>
+      <h1>Let us talk about your next home</h1>
+      <p class="lead">Tell us what you are looking for. An advisor will reply within one business day.</p>
+    </div>
+
+    <div class="container contact-layout">
+      <div class="contact-form-wrap">
+        <form class="request-form" id="contact-form" data-type="contact" novalidate>
+          <div class="form-grid">
+            <label class="field">
+              <span class="field-label">Full name</span>
+              <input name="name" type="text" autocomplete="name" data-label="Full name" required>
+            </label>
+            <label class="field">
+              <span class="field-label">Email</span>
+              <input name="email" type="email" autocomplete="email" data-label="Email" required>
+            </label>
+            <label class="field">
+              <span class="field-label">Phone</span>
+              <input name="phone" type="tel" autocomplete="tel" data-label="Phone" required>
+            </label>
+            <label class="field">
+              <span class="field-label">I am interested in</span>
+              <select name="enquiry" data-label="Interested in" required>
+                <option value="">Select an option</option>
+                <option>Buying a property</option>
+                <option>Renting a property</option>
+                <option>Selling or listing a property</option>
+                <option>Designing a home</option>
+                <option>Finding an architect</option>
+                <option>General question</option>
+              </select>
+            </label>
+          </div>
+
+          <fieldset class="fieldset-reset">
+            <legend class="field-label">Preferred contact method</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="contact-method" value="Email" data-label="Preferred contact" checked><span>Email</span></label>
+              <label class="chip"><input type="radio" name="contact-method" value="Phone" data-label="Preferred contact"><span>Phone</span></label>
+              <label class="chip"><input type="radio" name="contact-method" value="WhatsApp" data-label="Preferred contact"><span>WhatsApp</span></label>
+            </div>
+          </fieldset>
+
+          <label class="field">
+            <span class="field-label">Message</span>
+            <textarea name="message" rows="5" data-label="Message" required></textarea>
+          </label>
+
+          <button class="btn btn-gold" type="submit">Review enquiry</button>
+        </form>
+        <div class="request-result" id="contact-result" hidden></div>
+      </div>
+
+      <aside class="contact-info" aria-label="Office details">
+        <div class="info-card">
+          <h2>Visit our office</h2>
+          <p>Office 12, Crest Plaza, Main Boulevard</p>
+          <p>Private viewings are arranged by appointment.</p>
+        </div>
+        <div class="info-card">
+          <h2>Office hours</h2>
+          <ul class="hours">
+            <li><span>Monday to Friday</span><span>9:00 to 18:00</span></li>
+            <li><span>Saturday</span><span>10:00 to 16:00</span></li>
+            <li><span>Sunday</span><span>Closed</span></li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h2>Speak to us directly</h2>
+          <p class="contact-line"><span>hello@crest-haven.example</span>
+            <button class="copy-btn" type="button" data-copy="hello@crest-haven.example"><span class="copy-label">Copy</span></button>
+          </p>
+          <p class="contact-line"><span>+92 300 0000000</span>
+            <button class="copy-btn" type="button" data-copy="+92 300 0000000"><span class="copy-label">Copy</span></button>
+          </p>
+        </div>
+        <div class="faq">
+          <h2>Common questions</h2>
+          <details>
+            <summary>How does renting through CrestHaven work?</summary>
+            <p>Choose a property, book a viewing and submit a rental application. We check references, agree the lease terms with the owner and arrange the move-in date.</p>
+          </details>
+          <details>
+            <summary>Can I make an offer on a property online?</summary>
+            <p>Yes. Open the property page, choose Make an offer and share your proposed price. An advisor will contact you to discuss the next steps.</p>
+          </details>
+          <details>
+            <summary>How do I sell or list my property?</summary>
+            <p>Use the Sell Property page to submit your listing in four steps. Our team reviews every listing before it goes live.</p>
+          </details>
+          <details>
+            <summary>Do you help with architects and interior designers?</summary>
+            <p>Yes. Use the Find an Architect page to share your plot, budget and style, and we will match you with a professional.</p>
+          </details>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ACCOUNT: login and signup (rendered by dashboard.js) -->
+  <section class="view section" data-view="auth" hidden>
+    <div class="container narrow-wrap" id="auth-body"></div>
+  </section>
+
+  <!-- USER DASHBOARD (rendered by dashboard.js) -->
+  <section class="view section dash-section" data-view="dashboard" hidden>
+    <div class="container dash-layout">
+      <aside class="dash-side">
+        <p class="eyebrow">My account</p>
+        <nav class="dash-nav" id="dash-nav" aria-label="Dashboard"></nav>
+      </aside>
+      <div class="dash-main" id="dash-body"></div>
+    </div>
+  </section>
+
+  <!-- ADMIN PANEL (rendered by dashboard.js, admin accounts only) -->
+  <section class="view section dash-section" data-view="admin" hidden>
+    <div class="container dash-layout">
+      <aside class="dash-side">
+        <p class="eyebrow">Admin</p>
+        <nav class="dash-nav" id="admin-nav" aria-label="Admin"></nav>
+      </aside>
+      <div class="dash-main" id="admin-body"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="#home" aria-label="CrestHaven home">
+        <img class="brand-logo" src="images/crest-haven-logo.png" alt="CrestHaven" width="1487" height="953">
+      </a>
+      <p>CrestHaven is a luxury real estate agency for buyers, renters, sellers and people who want to design or build a considered home.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <h3>Explore</h3>
+      <ul>
+        <li><a href="#buy">Homes for sale</a></li>
+        <li><a href="#rent">Homes for rent</a></li>
+        <li><a href="#sell">Sell Property</a></li>
+        <li><a href="#design">Design Your Home</a></li>
+        <li><a href="#architect">Find an Architect</a></li>
+        <li><a href="#saved">Saved homes</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="footer-note">
+      <h3>Get in touch</h3>
+      <p>Office 12, Crest Plaza, Main Boulevard</p>
+      <p>hello@crest-haven.example</p>
+      <p>+92 300 0000000</p>
+      <p>Monday to Friday, 9:00 to 18:00</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; <span id="year">2026</span> CrestHaven. All rights reserved.</span>
+    <span>Luxury homes for sale and for rent.</span>
+  </div>
+</footer>
+
+<!-- POPUP -->
+<div class="popup" id="popup" hidden>
+  <div class="popup-backdrop" data-popup-close></div>
+  <div class="popup-card" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+    <button class="popup-close" type="button" data-popup-close aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <p class="eyebrow">Private consultation</p>
+    <h2 id="popup-title">Looking to buy, rent or build?</h2>
+    <p class="popup-text">Speak with an advisor for a short, no-pressure consultation. We will help you shortlist homes, plan your design or find the right architect.</p>
+    <div class="popup-actions">
+      <a class="btn btn-gold" href="#contact" data-popup-close>Book a Consultation</a>
+      <button class="btn btn-outline-dark" type="button" data-popup-close>Maybe later</button>
+    </div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+<script src="dashboard.js"></script>

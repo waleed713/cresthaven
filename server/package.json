@@ -1,0 +1,18 @@
+{
+  "name": "crest-haven-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "CrestHaven website server: CRM enquiries (HubSpot) and AI design suggestions (Gemini).",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --env-file=.env index.js",
+    "check": "node --check index.js"
+  },
+  "engines": {
+    "node": ">=22.5"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
